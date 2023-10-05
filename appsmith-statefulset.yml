@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: appsmith-statefulset
+spec:
+  serviceName: appsmith-service
+  replicas: 3  
+  selector:
+    matchLabels:
+      app: appsmith
+  template:
+    metadata:
+      labels:
+        app: appsmith
+    spec:
+      containers:
+        - name: appsmith
+          image: appsmith-ce:v1.9.38
+          ports:
+            - containerPort: 80
+          env:
+            - name: DATABASE_URL
+              value: "mongodb://mongo-service:27017/appsmith"
+            - name: REDIS_URL
+              value: "redis://redis-service:6379"
+          volumeMounts:
+            - name: appsmith-config
+              mountPath: /appsmith/config
+      volumes:
+        - name: appsmith-config
+          configMap:
+            name: appsmith-config

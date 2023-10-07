@@ -7,4 +7,3 @@ kubectl apply -f redis-service.yaml --record=true
 kubectl get pods
 kubectl apply -f appsmith-deployment.yaml --record=true
 kubectl apply -f appsmith-service.yaml --record=true
-kubectl apply -f appsmith-statefulset --record=true

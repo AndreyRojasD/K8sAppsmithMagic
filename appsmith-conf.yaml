@@ -2,6 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: appsmith-config
+  namespace: appsmith
 data:
   database-url: mongodb://mongo-service:27017/appsmith
   redis-url: redis://redis-service:6379

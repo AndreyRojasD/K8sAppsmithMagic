@@ -20,6 +20,7 @@ You can create your StatefulSets, namespaces, control replicas, set up environme
 
 ```bash
 ./startminikube.sh && ./deploy.sh
+```
 
 2. Now, to monitor the deployment, run this command and wait for everything to come up successfully:
 

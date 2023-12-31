@@ -16,6 +16,12 @@ You can create your StatefulSets, namespaces, control replicas, set up environme
 
 ## Getting Started
 
+1. Install the requirements using the following script:
+
+```bash
+./install
+```
+
 1. To get started, run the following command:
 
 ```bash
@@ -27,6 +33,12 @@ You can create your StatefulSets, namespaces, control replicas, set up environme
 
 ```bash
 kubectl get pods -n appsmith
+```
+
+3. Perform a port forward of port 80 from the Appsmith pod.
+
+```bash
+kubectl port-forward $POD_NAME 8080:80 -n appsmith
 ```
 
 You will see the containers starting up. If the Appsmith container takes too long to start (more than 15 minutes), execute this command:
